@@ -3,9 +3,13 @@
 </script>
 
 <Fullpage>
+	<FullpageSection title="Home">
+		<h1>ABCDEFG</h1>
+		<p>This is the home section of the portfolio.</p>
+	</FullpageSection>
 	<FullpageSection title="Admin-Dashboard">
 		<FullpageSlide title="Admin-Dashboard">
-			<h1>Admin-Dashboard</h1>
+			<h1>ADMIN-DASHBOARD</h1>
 			<p>A project to manage administrative tasks.</p>
 		</FullpageSlide>
 		<FullpageSlide title="Repo Example">
@@ -15,7 +19,7 @@
 	</FullpageSection>
 	<FullpageSection title="Album-Inventory-Application">
 		<FullpageSlide title="Album-Inventory-Application">
-			<h1>Album-Inventory-Application</h1>
+			<h1>ALBUM-INVENTORY-APPLICATION</h1>
 			<p>An application to manage an album inventory.</p>
 		</FullpageSlide>
 		<FullpageSlide title="Repo Example">
@@ -25,7 +29,7 @@
 	</FullpageSection>
 	<FullpageSection title="Battleship">
 		<FullpageSlide title="Battleship">
-			<h1>Battleship</h1>
+			<h1>BATTLESHIP</h1>
 			<p>The classic game of Battleship.</p>
 		</FullpageSlide>
 		<FullpageSlide title="Repo Example">
@@ -35,7 +39,7 @@
 	</FullpageSection>
 	<FullpageSection title="Blog-API">
 		<FullpageSlide title="Blog-API">
-			<h1>Blog-API</h1>
+			<h1>BLOG-API</h1>
 			<p>A RESTful API for a blog platform.</p>
 		</FullpageSlide>
 		<FullpageSlide title="Repo Example">
@@ -44,18 +48,31 @@
 		</FullpageSlide>
 	</FullpageSection>
 	<FullpageSection title="Contact Me">
-		<FullpageSlide title="Contact Me">
-			<h1>Contact Me</h1>
-			<p>Your contact information here.</p>
-		</FullpageSlide>
+		<h1>CONTACT ME</h1>
+		<p>Your contact information here.</p>
 	</FullpageSection>
 </Fullpage>
 
 <style>
+	@font-face {
+		font-family: 'SFDistantGalaxy';
+		src: url('/fonts/SFDistantGalaxy.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'PressStart2P';
+		src: url('/fonts/PressStart2P-Regular.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+
 	:global(html, body) {
 		height: 100vh;
 		width: 100%;
 		overflow: visible;
+		background-color: transparent;
+		color: white;
 	}
 
 	:global(.svelte-fp-section-indicator),
@@ -68,9 +85,26 @@
 		position: relative;
 	}
 
+	:global(ul.svelte-fp-section-indicator > li > button),
+	:global(ul.svelte-fp-slide-indicator > li > button) {
+		height: 0.6rem;
+		width: 0.6rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 5px;
+		background: transparent;
+	}
+
 	:global(ul.svelte-fp-section-indicator > li > button > i),
 	:global(ul.svelte-fp-slide-indicator > li > button > i) {
-		background-color: red;
+		background-color: white;
+		height: 40%;
+		width: 40%;
+		transition:
+			height 0.3s,
+			width 0.3s;
 	}
 
 	:global(ul.svelte-fp-section-indicator > li > button)::before,
@@ -82,7 +116,7 @@
 			opacity 0.3s,
 			font-size 0.3s;
 		pointer-events: none;
-		color: black;
+		color: white;
 		font-size: 0.5rem;
 		white-space: nowrap;
 	}
@@ -102,6 +136,15 @@
 	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
 	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
 		opacity: 1;
+		font-size: 0.8rem;
+	}
+	h1,
+	h2 {
+		font-family: 'SFDistantGalaxy', sans-serif;
+		font-weight: 200;
+	}
+	p {
+		font-family: 'PressStart2P', cursive;
 		font-size: 0.8rem;
 	}
 </style>
