@@ -1,6 +1,6 @@
 <script>
 	import { Fullpage, FullpageSection, FullpageSlide } from 'svelte-fullpage';
-	import { inView } from '../lib/inView.js';
+	import inView from '../lib/inView.js';
 </script>
 
 <Fullpage>
@@ -8,7 +8,8 @@
 		<h1 class="lightsaber" use:inView>Lupin Hsu</h1>
 		<p>
 			Self-motivated learner with hands-on programming experience developed through online study and
-			independent projects.<br />Strong interest in software development and continuous learning.
+			independent projects.<br />Strong interest in software development and continuous learning,
+			currently based in Taipei, Taiwan.
 		</p>
 	</FullpageSection>
 
@@ -123,7 +124,50 @@
 
 	<FullpageSection title="Contact Me">
 		<h1 class="lightsaber" use:inView>CONTACT ME</h1>
-		<p>Your contact information here.</p>
+		<div class="contact-container">
+			<a href="mailto:loopings1357@gmail.com" class="contact-link">
+				<svg
+					width="32"
+					height="32"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					><path
+						d="M22 4H2v16h20V4zM4 18V6h16v12H4zM8 8H6v2h2v2h2v2h4v-2h2v-2h2V8h-2v2h-2v2h-4v-2H8V8z"
+						fill="currentColor"
+					/></svg
+				>
+				<span class="contact">loopings1357@gmail.com</span>
+			</a>
+			<a
+				href="https://github.com/SAAAM485"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="contact-link"
+			>
+				<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M5 2h4v2H7v2H5V2Zm0 10H3V6h2v6Zm2 2H5v-2h2v2Zm2 2v-2H7v2H3v-2H1v2h2v2h4v4h2v-4h2v-2H9Zm0 0v2H7v-2h2Zm6-12v2H9V4h6Zm4 2h-2V4h-2V2h4v4Zm0 6V6h2v6h-2Zm-2 2v-2h2v2h-2Zm-2 2v-2h2v2h-2Zm0 2h-2v-2h2v2Zm0 0h2v4h-2v-4Z"
+					/></svg
+				>
+				<span class="contact">SAAAM485</span>
+			</a>
+			<a href="/resume.pdf" download="resume.pdf" class="contact-link">
+				<svg
+					width="32"
+					height="32"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					><path
+						d="M5 3H3v18h18V3H5zm14 2v14H5V5h14zm-2 2H7v2h10V7zM7 11h10v2H7v-2zm7 4H7v2h7v-2z"
+						fill="currentColor"
+					/></svg
+				>
+				<span class="contact">Download CV</span>
+			</a>
+		</div>
 	</FullpageSection>
 </Fullpage>
 
@@ -194,6 +238,16 @@
 			width 0.3s;
 	}
 
+	:global(ul.svelte-fp-section-indicator > li > button > i:hover),
+	:global(ul.svelte-fp-slide-indicator > li > button > i:hover) {
+		background-color: #ffe81f;
+		height: 80%;
+		width: 80%;
+		transition:
+			height 0.3s,
+			width 0.3s;
+	}
+
 	:global(ul.svelte-fp-section-indicator > li > button)::before,
 	:global(ul.svelte-fp-slide-indicator > li > button)::before {
 		content: attr(title);
@@ -209,7 +263,7 @@
 		color: white;
 		font-family: 'SFDistantGalaxyOutline', sans-serif;
 		font-weight: 800;
-		font-size: 0.5rem;
+		font-size: 2.5rem;
 		white-space: nowrap;
 	}
 
@@ -232,7 +286,7 @@
 	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
 	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
 		opacity: 1;
-		font-size: 0.8rem;
+		font-size: 1.2rem;
 		background-color: rgba(255, 255, 255, 0.1);
 		padding: 0.3rem 0.6rem;
 		border-radius: 0.5rem;
@@ -240,15 +294,6 @@
 
 	:global(div.svelte-fp-flexbox-center) {
 		flex-direction: column;
-	}
-	h1 {
-		font-family: 'SFDistantGalaxy', sans-serif;
-		font-weight: 200;
-		font-size: 3rem;
-		text-align: center;
-		position: relative;
-		display: inline-block;
-		overflow: hidden;
 	}
 
 	:global(.lightsaber.in-view::after) {
@@ -299,11 +344,36 @@
 	strong {
 		font-weight: 1000;
 	}
+
 	h1:hover,
 	h3:hover,
-	a:hover {
-		color: #ffe81f;
+	a:hover,
+	.contact:hover {
+		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
+		background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShine 1s forwards ease-out;
 		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	@keyframes textShine {
+		0% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	h1 {
+		font-family: 'SFDistantGalaxy', sans-serif;
+		font-weight: 200;
+		font-size: 3rem;
+		text-align: center;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
 	}
 	h3 {
 		font-family: 'SFDistantGalaxyOutline', sans-serif;
@@ -345,5 +415,24 @@
 		background-color: rgba(255, 255, 255, 0.3);
 		color: #ffe81f;
 		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	.contact-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: flex-start;
+		width: 20%;
+	}
+	.contact-link {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+	.contact-link:hover svg path {
+		fill: #ffe81f;
+	}
+	.contact {
+		font-family: 'PressStart2P', cursive;
+		font-size: 0.8rem;
 	}
 </style>
