@@ -1,10 +1,11 @@
 <script>
 	import { Fullpage, FullpageSection, FullpageSlide } from 'svelte-fullpage';
+	import { inView } from '../lib/inView.js';
 </script>
 
 <Fullpage>
 	<FullpageSection title="About Me">
-		<h1>Lupin Hsu</h1>
+		<h1 class="lightsaber" use:inView>Lupin Hsu</h1>
 		<p>
 			Self-motivated learner with hands-on programming experience developed through online study and
 			independent projects.<br />Strong interest in software development and continuous learning.
@@ -12,52 +13,116 @@
 	</FullpageSection>
 
 	<FullpageSection title="Skills">
-		<h1>Skills</h1>
+		<h1 class="lightsaber" use:inView>Skills</h1>
 		<p class="skills">
-			<strong>Frontend:</strong> HTML, CSS, JavaScript, TypeScript, React, Svelte, Next.js<br />
-			<strong>Backend:</strong> Node.js, Express, PostgreSQL, Prisma ORM, RESTful APIs<br />
-			<strong>Strengths:</strong> Quick learner, adaptable to new technologies and frameworks
+			<strong>Frontend</strong> <span class="tech">HTML</span> <span class="tech">CSS</span>
+			<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
+			<span class="tech">React</span> <span class="tech">Svelte</span>
+			<span class="tech">Next.js</span><br />
+			<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
+			<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
+			<span class="tech">Restful APIs</span><br />
+			<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks
 		</p>
 	</FullpageSection>
 
 	<FullpageSection title="Projects">
 		<FullpageSlide title="Zen Flow">
 			<h3>Projects</h3>
-			<h1><a href="https://zen-flow0.vercel.app/" target="_blank">Zen Flow</a></h1>
-			<p>A project to manage administrative tasks.</p>
+			<h1>
+				<a href="https://zen-flow0.vercel.app/" target="_blank" class="lightsaber" use:inView>
+					Zen Flow
+				</a>
+			</h1>
+			<div class="techContainer">
+				<span class="tech">Next.js</span>
+				<span class="tech">PostgreSQL</span>
+				<span class="tech">Prisma</span>
+				<span class="tech">Jest</span>
+			</div>
+			<p class="description">
+				A full-stack social platform built with Next.js—featuring guest mode and a time-sorted,
+				algorithm-free feed for a clean, distraction-free experience.
+			</p>
 		</FullpageSlide>
 
 		<FullpageSlide title="IASAM">
 			<h3>Projects</h3>
-			<h1><a href="https://messagingapp0730.netlify.app/" target="_blank">IASAM</a></h1>
-			<p>A project to manage administrative tasks.</p>
+			<h1>
+				<a
+					href="https://messagingapp0730.netlify.app/"
+					target="_blank"
+					class="lightsaber"
+					use:inView>IASAM</a
+				>
+			</h1>
+			<div class="techContainer">
+				<span class="tech">React</span>
+				<span class="tech">TypeScript</span>
+				<span class="tech">CSS Module</span>
+				<span class="tech">Node.js</span>
+				<span class="tech">Express</span>
+				<span class="tech">PostgreSQL</span>
+				<span class="tech">Prisma</span>
+				<span class="tech">Jest</span>
+			</div>
+			<p class="description">
+				A full-stack messaging app for group chats and image sharing—stay connected asynchronously.
+			</p>
 		</FullpageSlide>
 
 		<FullpageSlide title="Album Inventory">
 			<h3>Projects</h3>
 			<h1>
-				<a href="https://album-inventory-application.onrender.com/" target="_blank"
+				<a href="https://album-inventory-application.onrender.com/" class="lightsaber" use:inView
 					>Album Inventory</a
 				>
 			</h1>
-			<p>A project to manage administrative tasks.</p>
+			<div class="techContainer">
+				<span class="tech">React</span>
+				<span class="tech">JavaScript</span>
+				<span class="tech">Node.js</span>
+				<span class="tech">Express</span>
+				<span class="tech">EJS</span>
+				<span class="tech">PostgreSQL</span>
+			</div>
+			<p class="description">
+				An Album inventory app with full-stack architecture and admin controls.
+			</p>
 		</FullpageSlide>
 
 		<FullpageSlide title="Battleship">
 			<h3>Projects</h3>
-			<h1><a href="https://saaam485.github.io/Battleship/" target="_blank">Battleship</a></h1>
-			<p>A project to manage administrative tasks.</p>
+			<h1>
+				<a href="https://saaam485.github.io/Battleship/" class="lightsaber" use:inView>Battleship</a
+				>
+			</h1>
+			<div class="techContainer">
+				<span class="tech">JavaScript</span>
+				<span class="tech">CSS</span>
+				<span class="tech">Webpack</span>
+			</div>
+			<p class="description">
+				A React-powered static site where you can challenge a clever AI or play with a friend.
+			</p>
 		</FullpageSlide>
 
 		<FullpageSlide title="Calculator">
 			<h3>Projects</h3>
-			<h1><a href="https://saaam485.github.io/Calculator/" target="_blank">Calculator</a></h1>
-			<p>A project to manage administrative tasks.</p>
+			<h1>
+				<a href="https://saaam485.github.io/Calculator/" class="lightsaber" use:inView>Calculator</a
+				>
+			</h1>
+			<div class="techContainer">
+				<span class="tech">JavaScript</span>
+				<span class="tech">CSS</span>
+			</div>
+			<p class="description">A simple calculator made with vanilla JS as a learning project.</p>
 		</FullpageSlide>
 	</FullpageSection>
 
 	<FullpageSection title="Contact Me">
-		<h1>CONTACT ME</h1>
+		<h1 class="lightsaber" use:inView>CONTACT ME</h1>
 		<p>Your contact information here.</p>
 	</FullpageSection>
 </Fullpage>
@@ -80,6 +145,13 @@
 		src: url('/fonts/PressStart2P-Regular.ttf');
 		font-weight: normal;
 		font-style: normal;
+	}
+
+	:global(body) {
+		cursor: url('/cursor/smallsaber.png'), auto;
+	}
+	:global(body:active) {
+		cursor: url('/cursor/activesmallsaber.png'), auto;
 	}
 
 	:global(html, body) {
@@ -129,7 +201,10 @@
 		opacity: 0;
 		transition:
 			opacity 0.3s,
-			font-size 0.3s;
+			font-size 0.3s,
+			background-color 0.3s,
+			padding 0.3s,
+			border-radius 0.3s;
 		pointer-events: none;
 		color: white;
 		font-family: 'SFDistantGalaxyOutline', sans-serif;
@@ -150,10 +225,17 @@
 		margin-bottom: 0.2rem;
 	}
 
+	:global(ul.svelte-fp-section-indicator > li > button:hover),
+	:global(ul.svelte-fp-slide-indicator > li > button:hover) {
+		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
 	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
 	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
 		opacity: 1;
 		font-size: 0.8rem;
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 0.3rem 0.6rem;
+		border-radius: 0.5rem;
 	}
 
 	:global(div.svelte-fp-flexbox-center) {
@@ -164,6 +246,64 @@
 		font-weight: 200;
 		font-size: 3rem;
 		text-align: center;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+	}
+
+	:global(.lightsaber.in-view::after) {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 0;
+		height: 20%;
+		background-color: #ffe81f;
+		mix-blend-mode: screen;
+		border-radius: 2px;
+		box-shadow:
+			0 0 10px #ffe81f,
+			0 0 20px #ffe81f,
+			0 0 30px #ffe81f;
+		animation: lightsaber-sweep 1.2s forwards;
+		transform: translateY(-50%);
+		z-index: 1;
+	}
+	@keyframes lightsaber-sweep {
+		0% {
+			left: 0;
+			width: 0;
+			box-shadow:
+				0 0 0 #ffe81f,
+				0 0 0 #ffe81f,
+				0 0 0 #ffe81f;
+		}
+		50% {
+			left: 0;
+			width: 100%;
+			box-shadow:
+				0 0 10px #ffe81f,
+				0 0 20px #ffe81f,
+				0 0 30px #ffe81f;
+		}
+		100% {
+			left: 100%;
+			width: 0;
+			box-shadow:
+				0 0 0 #ffe81f,
+				0 0 0 #ffe81f,
+				0 0 0 #ffe81f;
+		}
+	}
+
+	strong {
+		font-weight: 1000;
+	}
+	h1:hover,
+	h3:hover,
+	a:hover {
+		color: #ffe81f;
+		cursor: url('/cursor/hoversmallsaber.png'), auto;
 	}
 	h3 {
 		font-family: 'SFDistantGalaxyOutline', sans-serif;
@@ -171,19 +311,39 @@
 		font-size: 1.5rem;
 	}
 	p {
-		width: 80%;
+		width: 55%;
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.8rem;
 		line-height: 1.6rem;
 		text-align: center;
 	}
 	p.skills {
-		width: 55%;
 		text-align: start;
 		line-height: 2rem;
 	}
 	a {
 		color: white;
 		text-decoration: none;
+		display: inline-block;
+		position: relative;
+	}
+	.techContainer {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 1rem 0;
+		gap: 0.5rem;
+	}
+	.tech {
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 0.3rem 0.6rem;
+		border-radius: 0.5rem;
+		font-family: 'PressStart2P', cursive;
+		font-size: 0.6rem;
+	}
+	.tech:hover {
+		background-color: rgba(255, 255, 255, 0.3);
+		color: #ffe81f;
+		cursor: url('/cursor/hoversmallsaber.png'), auto;
 	}
 </style>
