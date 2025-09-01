@@ -1,38 +1,57 @@
-# sv
+# Lupin Hsu's Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+[Live Demo](https://saaam485.github.io/portfolio/)
 
-## Creating a project
+## About the Project
 
-If you're seeing this, you've probably already done this step. Congrats!
+This is my personal portfolio website, built with SvelteKit and deployed on GitHub Pages. It showcases my skills and projects in a clean and interactive way.
+
+### Built With
+
+* [SvelteKit](https://kit.svelte.dev/)
+* [Vite](https://vitejs.dev/)
+* [Fullpage.js](https://alvarotrigo.com/fullPage/)
+
+## Features
+
+* Full-page scrolling
+* "In-view" animations
+* Responsive design
+* Interactive lightsaber cursor
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+* Node.js
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/SAAAM485/portfolio.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Deployment
+
+To deploy the project to GitHub Pages, run the following script:
 
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+./deploy.sh
 ```
 
-## Developing
+## Contact
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Lupin Hsu - loopings1357@gmail.com
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Project Link: [https://github.com/SAAAM485/portfolio](https://github.com/SAAAM485/portfolio)

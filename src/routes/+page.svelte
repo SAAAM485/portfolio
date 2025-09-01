@@ -2,6 +2,7 @@
 	import { Fullpage, FullpageSection, FullpageSlide } from 'svelte-fullpage';
 	import inView from '../lib/inView.js';
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 
 	onMount(() => {
 		if (navigator.pdfViewerEnabled === false) {
@@ -163,7 +164,7 @@
 				>
 				<span class="contact" use:inView>SAAAM485</span>
 			</a>
-			<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+			<a href="{base}/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
 				<svg
 					width="32"
 					height="32"
