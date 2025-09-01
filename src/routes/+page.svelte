@@ -1,6 +1,16 @@
 <script>
 	import { Fullpage, FullpageSection, FullpageSlide } from 'svelte-fullpage';
 	import inView from '../lib/inView.js';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		if (navigator.pdfViewerEnabled === false) {
+			const downloadLink = document.querySelector('a[href="/resume.pdf"]');
+			if (downloadLink) {
+				downloadLink.setAttribute('download', 'resume.pdf');
+			}
+		}
+	});
 </script>
 
 <Fullpage>
@@ -29,7 +39,7 @@
 
 	<FullpageSection title="Projects">
 		<FullpageSlide title="Zen Flow">
-			<h3>Projects</h3>
+			<h3 use:inView>Projects</h3>
 			<h1>
 				<a href="https://zen-flow0.vercel.app/" target="_blank" class="lightsaber" use:inView>
 					Zen Flow
@@ -48,7 +58,7 @@
 		</FullpageSlide>
 
 		<FullpageSlide title="IASAM">
-			<h3>Projects</h3>
+			<h3 use:inView>Projects</h3>
 			<h1>
 				<a
 					href="https://messagingapp0730.netlify.app/"
@@ -73,7 +83,7 @@
 		</FullpageSlide>
 
 		<FullpageSlide title="Album Inventory">
-			<h3>Projects</h3>
+			<h3 use:inView>Projects</h3>
 			<h1>
 				<a href="https://album-inventory-application.onrender.com/" class="lightsaber" use:inView
 					>Album Inventory</a
@@ -93,7 +103,7 @@
 		</FullpageSlide>
 
 		<FullpageSlide title="Battleship">
-			<h3>Projects</h3>
+			<h3 use:inView>Projects</h3>
 			<h1>
 				<a href="https://saaam485.github.io/Battleship/" class="lightsaber" use:inView>Battleship</a
 				>
@@ -109,7 +119,7 @@
 		</FullpageSlide>
 
 		<FullpageSlide title="Calculator">
-			<h3>Projects</h3>
+			<h3 use:inView>Projects</h3>
 			<h1>
 				<a href="https://saaam485.github.io/Calculator/" class="lightsaber" use:inView>Calculator</a
 				>
@@ -137,7 +147,7 @@
 						fill="currentColor"
 					/></svg
 				>
-				<span class="contact">loopings1357@gmail.com</span>
+				<span class="contact" use:inView>loopings1357@gmail.com</span>
 			</a>
 			<a
 				href="https://github.com/SAAAM485"
@@ -151,9 +161,9 @@
 						d="M5 2h4v2H7v2H5V2Zm0 10H3V6h2v6Zm2 2H5v-2h2v2Zm2 2v-2H7v2H3v-2H1v2h2v2h4v4h2v-4h2v-2H9Zm0 0v2H7v-2h2Zm6-12v2H9V4h6Zm4 2h-2V4h-2V2h4v4Zm0 6V6h2v6h-2Zm-2 2v-2h2v2h-2Zm-2 2v-2h2v2h-2Zm0 2h-2v-2h2v2Zm0 0h2v4h-2v-4Z"
 					/></svg
 				>
-				<span class="contact">SAAAM485</span>
+				<span class="contact" use:inView>SAAAM485</span>
 			</a>
-			<a href="/resume.pdf" download="resume.pdf" class="contact-link">
+			<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
 				<svg
 					width="32"
 					height="32"
@@ -165,7 +175,7 @@
 						fill="currentColor"
 					/></svg
 				>
-				<span class="contact">Download CV</span>
+				<span class="contact" use:inView>Download CV</span>
 			</a>
 		</div>
 	</FullpageSection>
@@ -345,7 +355,7 @@
 		font-weight: 1000;
 	}
 
-	h1:hover,
+	.lightsaber:hover,
 	h3:hover,
 	a:hover,
 	.contact:hover {
@@ -364,6 +374,31 @@
 		100% {
 			background-position: 0% 50%;
 		}
+	}
+
+	@keyframes textShineInView {
+		0% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	:global(.shine) {
+		background: linear-gradient(
+			45deg,
+			#ffffff 20%,
+			#ffe81f 40%,
+			#ffffff 60%,
+			#ffe81f 80%,
+			#ffffff 80%
+		);
+		background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShineInView 1s forwards ease-out;
 	}
 
 	h1 {
