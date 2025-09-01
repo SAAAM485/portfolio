@@ -389,7 +389,7 @@
 	}
 	p.skills {
 		text-align: start;
-		line-height: 2rem;
+		line-height: 2.5rem;
 	}
 	a {
 		color: white;
@@ -410,6 +410,7 @@
 		border-radius: 0.5rem;
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.6rem;
+		text-wrap: nowrap;
 	}
 	.tech:hover {
 		background-color: rgba(255, 255, 255, 0.3);
@@ -421,7 +422,7 @@
 		flex-direction: column;
 		gap: 1rem;
 		align-items: flex-start;
-		width: 20%;
+		margin: 0 auto;
 	}
 	.contact-link {
 		display: flex;
@@ -434,5 +435,46 @@
 	.contact {
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.8rem;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 3rem;
+		}
+		p {
+			width: 80%;
+			font-size: 0.7rem;
+			line-height: 1.4rem;
+		}
+	}
+	@media (max-width: 480px) {
+		h1 {
+			font-size: 2rem;
+		}
+		p {
+			width: 80%;
+			font-size: 0.6rem;
+			line-height: 1.2rem;
+		}
+		.techContainer {
+			width: 80%;
+			text-wrap: nowrap;
+		}
+		h3 {
+			font-size: 1rem;
+		}
+		span.tech {
+			font-size: 0.5rem;
+		}
+		.contact {
+			font-size: 0.6rem;
+		}
+		.contact-link {
+			gap: 0.6rem;
+		}
+		p.description {
+			font-size: 0.6rem;
+			line-height: 1.2rem;
+		}
 	}
 </style>
