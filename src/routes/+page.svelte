@@ -417,7 +417,6 @@
 		font-size: 1.5rem;
 	}
 	p {
-		width: 55%;
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.8rem;
 		line-height: 1.6rem;
@@ -426,6 +425,7 @@
 	p.skills {
 		text-align: start;
 		line-height: 2.5rem;
+		margin: 0 auto;
 	}
 	a {
 		color: white;
