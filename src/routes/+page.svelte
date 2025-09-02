@@ -29,12 +29,16 @@
 		<p class="skills">
 			<strong>Frontend</strong> <span class="tech">HTML</span> <span class="tech">CSS</span>
 			<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
+			<span class="tech">Webpack</span> <span class="tech">Vite</span>
 			<span class="tech">React</span> <span class="tech">Svelte</span>
 			<span class="tech">Next.js</span><br />
 			<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
 			<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
 			<span class="tech">Restful APIs</span><br />
-			<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks
+			<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks.
+		</p>
+		<p class="power">
+			This site is powered by <span class="tech">Svelte</span> and <span class="tech">Vite</span>.
 		</p>
 	</FullpageSection>
 
@@ -72,6 +76,7 @@
 				<span class="tech">React</span>
 				<span class="tech">TypeScript</span>
 				<span class="tech">CSS Module</span>
+				<span class="tech">Vite</span>
 				<span class="tech">Node.js</span>
 				<span class="tech">Express</span>
 				<span class="tech">PostgreSQL</span>
@@ -79,7 +84,8 @@
 				<span class="tech">Jest</span>
 			</div>
 			<p class="description">
-				A full-stack messaging app for group chats and image sharing—stay connected asynchronously.
+				A full-stack messaging app for group chats and image sharing on desktop and laptop
+				platforms, stay connected asynchronously.
 			</p>
 		</FullpageSlide>
 
@@ -113,9 +119,11 @@
 				<span class="tech">JavaScript</span>
 				<span class="tech">CSS</span>
 				<span class="tech">Webpack</span>
+				<span class="tech">Jest</span>
 			</div>
 			<p class="description">
-				A React-powered static site where you can challenge a clever AI or play with a friend.
+				A React-powered static site on desktop and laptop platforms where you can challenge a clever
+				AI or play with a friend.
 			</p>
 		</FullpageSlide>
 
@@ -426,6 +434,10 @@
 		text-align: start;
 		line-height: 2.5rem;
 		margin: 0 auto;
+	}
+	p.power {
+		justify-self: flex-end;
+		font-size: 0.5rem;
 	}
 	a {
 		color: white;
