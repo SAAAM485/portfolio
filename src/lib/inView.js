@@ -10,15 +10,15 @@ export default function inView(node) {
 	 */
 	const handleIntersect = (entries) => {
 		const [e] = entries; // Destructure the first entry
-					if (e.isIntersecting) {
-				e.target.classList.add('in-view');
-				e.target.classList.add('shine');
-				setTimeout(() => {
-					e.target.classList.remove('shine');
-				}, 1000);
-			} else {
-				e.target.classList.remove('in-view');
-			}
+		if (e.isIntersecting) {
+			e.target.classList.add('in-view');
+			e.target.classList.add('shine');
+			setTimeout(() => {
+				e.target.classList.remove('shine');
+			}, 2000);
+		} else {
+			e.target.classList.remove('in-view');
+		}
 	};
 
 	observer = new IntersectionObserver(handleIntersect);

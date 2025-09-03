@@ -5,12 +5,24 @@
 	import { base } from '$app/paths';
 
 	onMount(() => {
-		if (navigator.pdfViewerEnabled === false) {
-			const downloadLink = document.querySelector('a[href="/resume.pdf"]');
-			if (downloadLink) {
-				downloadLink.setAttribute('download', 'resume.pdf');
+		const link = document.getElementById('resume-link');
+		if (!link) return;
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			const url = link.getAttribute('href');
+			if (!url) return;
+			const newWindow = window.open(url, '_blank');
+
+			if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+				const a = document.createElement('a');
+				a.href = url;
+				a.download = 'lupin_hsu_resume.pdf';
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
 			}
-		}
+		});
 	});
 </script>
 
@@ -26,27 +38,45 @@
 
 	<FullpageSection title="Skills">
 		<h1 class="lightsaber" use:inView>Skills</h1>
-		<p class="skills">
-			<strong>Frontend</strong> <span class="tech">HTML</span> <span class="tech">CSS</span>
-			<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
-			<span class="tech">Webpack</span> <span class="tech">Vite</span>
-			<span class="tech">React</span> <span class="tech">Svelte</span>
-			<span class="tech">Next.js</span><br />
-			<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
-			<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
-			<span class="tech">Restful APIs</span><br />
-			<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks.
-		</p>
+		<div class="skillcontainer">
+			<p class="skills">
+				<strong>Frontend</strong> <span class="tech">HTML</span> <span class="tech">CSS</span>
+				<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
+				<span class="tech">Webpack</span> <span class="tech">Vite</span>
+				<span class="tech">React</span> <span class="tech">Svelte</span>
+				<span class="tech">Next.js</span>
+			</p>
+			<p class="skills">
+				<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
+				<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
+				<span class="tech">Restful APIs</span>
+			</p>
+			<p class="skills">
+				<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks.
+			</p>
+		</div>
 		<p class="power">
 			This site is powered by <span class="tech">Svelte</span> and <span class="tech">Vite</span>.
 		</p>
+		<a
+			class="link"
+			href="https://github.com/SAAAM485/portfolio"
+			target="_blank"
+			rel="noopener noreferrer">View on GitHub</a
+		>
 	</FullpageSection>
 
 	<FullpageSection title="Projects">
 		<FullpageSlide title="Zen Flow">
 			<h3 use:inView>Projects</h3>
-			<h1>
-				<a href="https://zen-flow0.vercel.app/" target="_blank" class="lightsaber" use:inView>
+			<h1 class="demo">
+				<a
+					href="https://zen-flow0.vercel.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="lightsaber"
+					use:inView
+				>
 					Zen Flow
 				</a>
 			</h1>
@@ -60,14 +90,21 @@
 				A full-stack social platform built with Next.js—featuring guest mode and a time-sorted,
 				algorithm-free feed for a clean, distraction-free experience.
 			</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/zen-flow"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
 		</FullpageSlide>
 
 		<FullpageSlide title="IASAM">
 			<h3 use:inView>Projects</h3>
-			<h1>
+			<h1 class="demo">
 				<a
 					href="https://messagingapp0730.netlify.app/"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="lightsaber"
 					use:inView>IASAM</a
 				>
@@ -87,17 +124,26 @@
 				A full-stack messaging app for group chats and image sharing on desktop and laptop
 				platforms, stay connected asynchronously.
 			</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/Messaging-App"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
 		</FullpageSlide>
 
 		<FullpageSlide title="Album Inventory">
 			<h3 use:inView>Projects</h3>
-			<h1>
-				<a href="https://album-inventory-application.onrender.com/" class="lightsaber" use:inView
-					>Album Inventory</a
+			<h1 class="demo">
+				<a
+					href="https://album-inventory-application.onrender.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="lightsaber"
+					use:inView>Album Inventory</a
 				>
 			</h1>
 			<div class="techContainer">
-				<span class="tech">React</span>
 				<span class="tech">JavaScript</span>
 				<span class="tech">Node.js</span>
 				<span class="tech">Express</span>
@@ -107,12 +153,23 @@
 			<p class="description">
 				An Album inventory app with full-stack architecture and admin controls.
 			</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/Album-Inventory-Application"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
 		</FullpageSlide>
 
 		<FullpageSlide title="Battleship">
 			<h3 use:inView>Projects</h3>
-			<h1>
-				<a href="https://saaam485.github.io/Battleship/" class="lightsaber" use:inView>Battleship</a
+			<h1 class="demo">
+				<a
+					href="https://saaam485.github.io/Battleship/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="lightsaber"
+					use:inView>Battleship</a
 				>
 			</h1>
 			<div class="techContainer">
@@ -125,12 +182,23 @@
 				A React-powered static site on desktop and laptop platforms where you can challenge a clever
 				AI or play with a friend.
 			</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/Battleship"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
 		</FullpageSlide>
 
 		<FullpageSlide title="Calculator">
 			<h3 use:inView>Projects</h3>
-			<h1>
-				<a href="https://saaam485.github.io/Calculator/" class="lightsaber" use:inView>Calculator</a
+			<h1 class="demo">
+				<a
+					href="https://saaam485.github.io/Calculator/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="lightsaber"
+					use:inView>Calculator</a
 				>
 			</h1>
 			<div class="techContainer">
@@ -138,6 +206,12 @@
 				<span class="tech">CSS</span>
 			</div>
 			<p class="description">A simple calculator made with vanilla JS as a learning project.</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/Calculator"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
 		</FullpageSlide>
 	</FullpageSection>
 
@@ -172,7 +246,12 @@
 				>
 				<span class="contact" use:inView>SAAAM485</span>
 			</a>
-			<a href="{base}/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+			<a
+				href="{base}/lupin_hsu_resume.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="contact-link"
+			>
 				<svg
 					width="32"
 					height="32"
@@ -184,7 +263,7 @@
 						fill="currentColor"
 					/></svg
 				>
-				<span class="contact" use:inView>Download CV</span>
+				<span class="contact" use:inView>Download Resume</span>
 			</a>
 		</div>
 	</FullpageSection>
@@ -193,19 +272,19 @@
 <style>
 	@font-face {
 		font-family: 'SFDistantGalaxy';
-		src: url('/fonts/SFDistantGalaxy.ttf');
+		src: url('/fonts/SFDistantGalaxy.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
 	@font-face {
 		font-family: 'SFDistantGalaxyOutline';
-		src: url('/fonts/SFDistantGalaxyAltOutline.ttf');
+		src: url('/fonts/SFDistantGalaxyAltOutline.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
 	@font-face {
 		font-family: 'PressStart2P';
-		src: url('/fonts/PressStart2P-Regular.ttf');
+		src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
 		font-weight: normal;
 		font-style: normal;
 	}
@@ -262,9 +341,6 @@
 		background-color: #ffe81f;
 		height: 80%;
 		width: 80%;
-		transition:
-			height 0.3s,
-			width 0.3s;
 	}
 
 	:global(ul.svelte-fp-section-indicator > li > button)::before,
@@ -301,6 +377,10 @@
 	:global(ul.svelte-fp-section-indicator > li > button:hover),
 	:global(ul.svelte-fp-slide-indicator > li > button:hover) {
 		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button:hover:active),
+	:global(ul.svelte-fp-slide-indicator > li > button:hover:active) {
+		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
 	}
 	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
 	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
@@ -362,6 +442,15 @@
 
 	strong {
 		font-weight: 1000;
+		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShineInView 4s forwards ease-out;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
 	}
 
 	.lightsaber:hover,
@@ -370,11 +459,18 @@
 	.contact:hover {
 		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
 		background-clip: text;
+		-webkit-background-clip: text;
 		color: transparent;
 		-webkit-text-fill-color: transparent;
 		background-size: 500%, auto;
 		animation: textShine 1s forwards ease-out;
 		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	.lightsaber:hover:active,
+	h3:hover:active,
+	a:hover:active,
+	.contact:hover:active {
+		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
 	}
 	@keyframes textShine {
 		0% {
@@ -404,10 +500,13 @@
 			#ffffff 80%
 		);
 		background-clip: text;
+		-webkit-background-clip: text;
 		color: transparent;
 		-webkit-text-fill-color: transparent;
 		background-size: 500%, auto;
-		animation: textShineInView 1s forwards ease-out;
+		animation: textShineInView 1s ease-out;
+		animation-iteration-count: 2;
+		animation-direction: alternate;
 	}
 
 	h1 {
@@ -417,7 +516,30 @@
 		text-align: center;
 		position: relative;
 		display: inline-block;
-		overflow: hidden;
+		overflow: visible;
+		max-width: 85%;
+	}
+
+	h1.demo::after {
+		content: 'live demo';
+		line-height: 0.6rem;
+		font-family: 'PressStart2P', cursive;
+		position: absolute;
+		bottom: 110%;
+		left: 98%;
+		font-size: 0.5rem;
+		animation: bounce 1.3s ease-in-out infinite;
+	}
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+			color: white;
+		}
+		50% {
+			transform: translateY(-0.4rem);
+			color: #ffe81f;
+		}
 	}
 	h3 {
 		font-family: 'SFDistantGalaxyOutline', sans-serif;
@@ -429,11 +551,19 @@
 		font-size: 0.8rem;
 		line-height: 1.6rem;
 		text-align: center;
+		max-width: 85%;
+	}
+	div.skillcontainer {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		max-width: 85%;
 	}
 	p.skills {
-		text-align: start;
-		line-height: 2.5rem;
-		margin: 0 auto;
+		text-wrap: wrap;
+		text-align: left;
+		max-width: 100%;
+		line-height: 1.4rem;
 	}
 	p.power {
 		justify-self: flex-end;
@@ -441,9 +571,35 @@
 	}
 	a {
 		color: white;
-		text-decoration: none;
 		display: inline-block;
 		position: relative;
+		text-decoration: none;
+	}
+	:global(h1:has(a.lightsaber.in-view)::before) {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -0.2rem;
+		width: 100%;
+		height: 0.1rem;
+		background: linear-gradient(90deg, #ffe81f, #ffffff, #ffe81f);
+		transform: scaleX(0);
+		transform-origin: left;
+		animation: underline-grow 2s forwards; /* 自動播放動畫 */
+	}
+
+	@keyframes underline-grow {
+		0% {
+			transform: scaleX(0);
+		}
+		100% {
+			transform: scaleX(1);
+		}
+	}
+	a.link {
+		font-family: 'PressStart2P', cursive;
+		font-size: 0.5rem;
+		text-decoration: underline;
 	}
 	.techContainer {
 		display: flex;
@@ -465,6 +621,9 @@
 		color: #ffe81f;
 		cursor: url('/cursor/hoversmallsaber.png'), auto;
 	}
+	.tech:hover:active {
+		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+	}
 	.contact-container {
 		display: flex;
 		flex-direction: column;
@@ -483,6 +642,15 @@
 	.contact {
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.8rem;
+		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShineInView 4s ease-out;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
 	}
 
 	@media (max-width: 768px) {
@@ -494,6 +662,15 @@
 			font-size: 0.7rem;
 			line-height: 1.4rem;
 		}
+		p.power {
+			font-size: 0.4rem;
+		}
+		a.link {
+			font-size: 0.4rem;
+		}
+		div.skillcontainer {
+			align-items: center;
+		}
 	}
 	@media (max-width: 480px) {
 		h1 {
@@ -501,18 +678,27 @@
 		}
 		p {
 			width: 80%;
-			font-size: 0.6rem;
+			font-size: 0.5rem;
 			line-height: 1.2rem;
+		}
+		p.power {
+			font-size: 0.35rem;
+		}
+		a.link {
+			font-size: 0.35rem;
 		}
 		.techContainer {
 			width: 80%;
 			text-wrap: nowrap;
 		}
+		div.skillcontainer {
+			align-items: center;
+		}
 		h3 {
 			font-size: 1rem;
 		}
 		span.tech {
-			font-size: 0.5rem;
+			font-size: 0.4rem;
 		}
 		.contact {
 			font-size: 0.6rem;
