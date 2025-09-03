@@ -592,10 +592,14 @@
 	.tech:hover {
 		background-color: rgba(255, 255, 255, 0.3);
 		color: #ffe81f;
-		cursor: url('/cursor/hoversmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoversmallsaber.png') 12 12,
+			auto;
 	}
 	.tech:hover:active {
-		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoveractivesmallsaber.png') 12 12,
+			auto;
 	}
 
 	.lightsaber:hover,
@@ -609,13 +613,17 @@
 		-webkit-text-fill-color: transparent;
 		background-size: 500%, auto;
 		animation: textShine 1s forwards ease-out;
-		cursor: url('/cursor/hoversmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoversmallsaber.png') 12 12,
+			auto;
 	}
 	.lightsaber:hover:active,
 	h3:hover:active,
 	a:hover:active,
 	.contact:hover:active {
-		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoveractivesmallsaber.png') 12 12,
+			auto;
 	}
 
 	.contact-container {
@@ -649,9 +657,6 @@
 
 	/* Responsive Styles */
 	@media (max-width: 768px) {
-		h1 {
-			font-size: 3rem;
-		}
 		p {
 			width: 80%;
 			font-size: 0.7rem;
@@ -669,12 +674,18 @@
 	}
 	@media (max-width: 480px) {
 		h1 {
-			font-size: 2rem;
+			font-size: 1.5rem;
+		}
+		h3 {
+			font-size: 0.8rem;
 		}
 		p {
 			width: 80%;
-			font-size: 0.5rem;
+			font-size: 0.45rem;
 			line-height: 1.2rem;
+		}
+		h1.demo::after {
+			font-size: 0.3rem;
 		}
 		p.power {
 			font-size: 0.35rem;
@@ -689,8 +700,52 @@
 		div.skillcontainer {
 			align-items: center;
 		}
+		span.tech {
+			font-size: 0.4rem;
+		}
+		.contact {
+			font-size: 0.6rem;
+		}
+		.contact-link {
+			gap: 0.6rem;
+		}
+		p.description {
+			font-size: 0.6rem;
+			line-height: 1.2rem;
+		}
+	}
+
+	@media (max-height: 500px) {
+		h1 {
+			font-size: 1.5rem;
+			margin-bottom: 0.5rem;
+		}
 		h3 {
-			font-size: 1rem;
+			font-size: 0.8rem;
+			margin-bottom: 0;
+		}
+		p {
+			width: 80%;
+			font-size: 0.4rem;
+			line-height: 1rem;
+		}
+		h1.demo::after {
+			font-size: 0.3rem;
+		}
+		p.power {
+			font-size: 0.35rem;
+		}
+		a.link {
+			font-size: 0.35rem;
+			z-index: 1;
+		}
+		.techContainer {
+			width: 80%;
+			text-wrap: nowrap;
+			margin-bottom: 0.3rem;
+		}
+		div.skillcontainer {
+			align-items: center;
 		}
 		span.tech {
 			font-size: 0.4rem;
