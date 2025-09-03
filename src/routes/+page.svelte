@@ -270,6 +270,7 @@
 </Fullpage>
 
 <style>
+	/* Font Faces */
 	@font-face {
 		font-family: 'SFDistantGalaxy';
 		src: url('/fonts/SFDistantGalaxy.ttf') format('truetype');
@@ -289,130 +290,7 @@
 		font-style: normal;
 	}
 
-	:global(body) {
-		cursor: url('/cursor/smallsaber.png'), auto;
-	}
-	:global(body:active) {
-		cursor: url('/cursor/activesmallsaber.png'), auto;
-	}
-
-	:global(html, body) {
-		height: 100vh;
-		width: 100%;
-		overflow: visible;
-		background-color: transparent;
-		color: white;
-	}
-
-	:global(.svelte-fp-section-indicator),
-	:global(.svelte-fp-slide-indicator) {
-		overflow: visible !important;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button),
-	:global(ul.svelte-fp-slide-indicator > li > button) {
-		position: relative;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button),
-	:global(ul.svelte-fp-slide-indicator > li > button) {
-		height: 0.6rem;
-		width: 0.6rem;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 5px;
-		background: transparent;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button > i),
-	:global(ul.svelte-fp-slide-indicator > li > button > i) {
-		background-color: white;
-		height: 40%;
-		width: 40%;
-		transition:
-			height 0.3s,
-			width 0.3s;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button > i:hover),
-	:global(ul.svelte-fp-slide-indicator > li > button > i:hover) {
-		background-color: #ffe81f;
-		height: 80%;
-		width: 80%;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button)::before,
-	:global(ul.svelte-fp-slide-indicator > li > button)::before {
-		content: attr(title);
-		position: absolute;
-		opacity: 0;
-		transition:
-			opacity 0.3s,
-			font-size 0.3s,
-			background-color 0.3s,
-			padding 0.3s,
-			border-radius 0.3s;
-		pointer-events: none;
-		color: white;
-		font-family: 'SFDistantGalaxyOutline', sans-serif;
-		font-weight: 800;
-		font-size: 2.5rem;
-		white-space: nowrap;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button)::before {
-		right: 120%;
-		margin-right: 0.2rem;
-	}
-
-	:global(ul.svelte-fp-slide-indicator > li > button)::before {
-		bottom: 280%;
-		left: 50%;
-		transform: translateX(-50%);
-		margin-bottom: 0.2rem;
-	}
-
-	:global(ul.svelte-fp-section-indicator > li > button:hover),
-	:global(ul.svelte-fp-slide-indicator > li > button:hover) {
-		cursor: url('/cursor/hoversmallsaber.png'), auto;
-	}
-	:global(ul.svelte-fp-section-indicator > li > button:hover:active),
-	:global(ul.svelte-fp-slide-indicator > li > button:hover:active) {
-		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
-	}
-	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
-	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
-		opacity: 1;
-		font-size: 1.2rem;
-		background-color: rgba(255, 255, 255, 0.1);
-		padding: 0.3rem 0.6rem;
-		border-radius: 0.5rem;
-	}
-
-	:global(div.svelte-fp-flexbox-center) {
-		flex-direction: column;
-	}
-
-	:global(.lightsaber.in-view::after) {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 0;
-		width: 0;
-		height: 20%;
-		background-color: #ffe81f;
-		mix-blend-mode: screen;
-		border-radius: 2px;
-		box-shadow:
-			0 0 10px #ffe81f,
-			0 0 20px #ffe81f,
-			0 0 30px #ffe81f;
-		animation: lightsaber-sweep 1.2s forwards;
-		transform: translateY(-50%);
-		z-index: 1;
-	}
+	/* Animations */
 	@keyframes lightsaber-sweep {
 		0% {
 			left: 0;
@@ -439,39 +317,6 @@
 				0 0 0 #ffe81f;
 		}
 	}
-
-	strong {
-		font-weight: 1000;
-		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		color: transparent;
-		-webkit-text-fill-color: transparent;
-		background-size: 500%, auto;
-		animation: textShineInView 4s forwards ease-out;
-		animation-direction: alternate;
-		animation-iteration-count: infinite;
-	}
-
-	.lightsaber:hover,
-	h3:hover,
-	a:hover,
-	.contact:hover {
-		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
-		background-clip: text;
-		-webkit-background-clip: text;
-		color: transparent;
-		-webkit-text-fill-color: transparent;
-		background-size: 500%, auto;
-		animation: textShine 1s forwards ease-out;
-		cursor: url('/cursor/hoversmallsaber.png'), auto;
-	}
-	.lightsaber:hover:active,
-	h3:hover:active,
-	a:hover:active,
-	.contact:hover:active {
-		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
-	}
 	@keyframes textShine {
 		0% {
 			background-position: 100% 50%;
@@ -480,16 +325,139 @@
 			background-position: 0% 50%;
 		}
 	}
-
-	@keyframes textShineInView {
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+			color: white;
+		}
+		50% {
+			transform: translateY(-0.4rem);
+			color: #ffe81f;
+		}
+	}
+	@keyframes underline-grow {
 		0% {
-			background-position: 100% 50%;
+			transform: scaleX(0);
 		}
 		100% {
-			background-position: 0% 50%;
+			transform: scaleX(1);
 		}
 	}
 
+	/* Global Styles (for 3rd Party Library & JS Classes) */
+	:global(body) {
+		cursor: url('/cursor/smallsaber.png'), auto;
+	}
+	:global(body:active) {
+		cursor: url('/cursor/activesmallsaber.png'), auto;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button:hover),
+	:global(ul.svelte-fp-slide-indicator > li > button:hover) {
+		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button:hover:active),
+	:global(ul.svelte-fp-slide-indicator > li > button:hover:active) {
+		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+	}
+	:global(html, body) {
+		height: 100vh;
+		width: 100%;
+		overflow: visible;
+		background-color: transparent;
+		color: white;
+	}
+	:global(.svelte-fp-section-indicator),
+	:global(.svelte-fp-slide-indicator) {
+		overflow: visible !important;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button),
+	:global(ul.svelte-fp-slide-indicator > li > button) {
+		position: relative;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button),
+	:global(ul.svelte-fp-slide-indicator > li > button) {
+		height: 0.6rem;
+		width: 0.6rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 5px;
+		background: transparent;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button > i),
+	:global(ul.svelte-fp-slide-indicator > li > button > i) {
+		background-color: white;
+		height: 40%;
+		width: 40%;
+		transition:
+			height 0.3s,
+			width 0.3s;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button > i:hover),
+	:global(ul.svelte-fp-slide-indicator > li > button > i:hover) {
+		background-color: #ffe81f;
+		height: 80%;
+		width: 80%;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button)::before,
+	:global(ul.svelte-fp-slide-indicator > li > button)::before {
+		content: attr(title);
+		position: absolute;
+		opacity: 0;
+		transition:
+			opacity 0.3s,
+			font-size 0.3s,
+			background-color 0.3s,
+			padding 0.3s,
+			border-radius 0.3s;
+		pointer-events: none;
+		color: white;
+		font-family: 'SFDistantGalaxyOutline', sans-serif;
+		font-weight: 800;
+		font-size: 2.5rem;
+		white-space: nowrap;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button)::before {
+		right: 120%;
+		margin-right: 0.2rem;
+	}
+	:global(ul.svelte-fp-slide-indicator > li > button)::before {
+		bottom: 280%;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-bottom: 0.2rem;
+	}
+	:global(ul.svelte-fp-section-indicator > li > button:hover)::before,
+	:global(ul.svelte-fp-slide-indicator > li > button:hover)::before {
+		opacity: 1;
+		font-size: 1.2rem;
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 0.3rem 0.6rem;
+		border-radius: 0.5rem;
+	}
+	:global(div.svelte-fp-flexbox-center) {
+		flex-direction: column;
+	}
+	:global(.lightsaber.in-view::after) {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 0;
+		height: 20%;
+		background-color: #ffe81f;
+		mix-blend-mode: screen;
+		border-radius: 2px;
+		box-shadow:
+			0 0 10px #ffe81f,
+			0 0 20px #ffe81f,
+			0 0 30px #ffe81f;
+		animation: lightsaber-sweep 1.2s forwards;
+		transform: translateY(-50%);
+		z-index: 1;
+	}
 	:global(.shine) {
 		background: linear-gradient(
 			45deg,
@@ -504,76 +472,9 @@
 		color: transparent;
 		-webkit-text-fill-color: transparent;
 		background-size: 500%, auto;
-		animation: textShineInView 1s ease-out;
+		animation: textShine 1s ease-out;
 		animation-iteration-count: 2;
 		animation-direction: alternate;
-	}
-
-	h1 {
-		font-family: 'SFDistantGalaxy', sans-serif;
-		font-weight: 200;
-		font-size: 3rem;
-		text-align: center;
-		position: relative;
-		display: inline-block;
-		overflow: visible;
-		max-width: 85%;
-	}
-
-	h1.demo::after {
-		content: 'live demo';
-		line-height: 0.6rem;
-		font-family: 'PressStart2P', cursive;
-		position: absolute;
-		bottom: 110%;
-		left: 98%;
-		font-size: 0.5rem;
-		animation: bounce 1.3s ease-in-out infinite;
-	}
-	@keyframes bounce {
-		0%,
-		100% {
-			transform: translateY(0);
-			color: white;
-		}
-		50% {
-			transform: translateY(-0.4rem);
-			color: #ffe81f;
-		}
-	}
-	h3 {
-		font-family: 'SFDistantGalaxyOutline', sans-serif;
-		font-weight: 800;
-		font-size: 1.5rem;
-	}
-	p {
-		font-family: 'PressStart2P', cursive;
-		font-size: 0.8rem;
-		line-height: 1.6rem;
-		text-align: center;
-		max-width: 85%;
-	}
-	div.skillcontainer {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		max-width: 85%;
-	}
-	p.skills {
-		text-wrap: wrap;
-		text-align: left;
-		max-width: 100%;
-		line-height: 1.4rem;
-	}
-	p.power {
-		justify-self: flex-end;
-		font-size: 0.5rem;
-	}
-	a {
-		color: white;
-		display: inline-block;
-		position: relative;
-		text-decoration: none;
 	}
 	:global(h1:has(a.lightsaber.in-view)::before) {
 		content: '';
@@ -588,19 +489,83 @@
 		animation: underline-grow 2s forwards; /* 自動播放動畫 */
 	}
 
-	@keyframes underline-grow {
-		0% {
-			transform: scaleX(0);
-		}
-		100% {
-			transform: scaleX(1);
-		}
+	/* Component Styles */
+	strong {
+		font-weight: 1000;
+		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShine 4s forwards ease-out;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
+	}
+
+	h1 {
+		font-family: 'SFDistantGalaxy', sans-serif;
+		font-weight: 200;
+		font-size: 3rem;
+		text-align: center;
+		position: relative;
+		display: inline-block;
+		overflow: visible;
+		max-width: 85%;
+	}
+	h1.demo::after {
+		content: 'live demo';
+		line-height: 0.6rem;
+		font-family: 'PressStart2P', cursive;
+		position: absolute;
+		bottom: 110%;
+		left: 98%;
+		font-size: 0.5rem;
+		animation: bounce 1.3s ease-in-out infinite;
+	}
+
+	h3 {
+		font-family: 'SFDistantGalaxyOutline', sans-serif;
+		font-weight: 800;
+		font-size: 1.5rem;
+	}
+
+	div.skillcontainer {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		max-width: 85%;
+	}
+	p {
+		font-family: 'PressStart2P', cursive;
+		font-size: 0.8rem;
+		line-height: 1.6rem;
+		text-align: center;
+		max-width: 85%;
+	}
+	p.skills {
+		text-wrap: wrap;
+		text-align: left;
+		max-width: 100%;
+		line-height: 1.4rem;
+	}
+	p.power {
+		justify-self: flex-end;
+		font-size: 0.5rem;
+	}
+
+	a {
+		color: white;
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
 	}
 	a.link {
 		font-family: 'PressStart2P', cursive;
 		font-size: 0.5rem;
 		text-decoration: underline;
 	}
+
 	.techContainer {
 		display: flex;
 		justify-content: center;
@@ -624,6 +589,27 @@
 	.tech:hover:active {
 		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
 	}
+
+	.lightsaber:hover,
+	h3:hover,
+	a:hover,
+	.contact:hover {
+		background: linear-gradient(45deg, #ffe81f 25%, #ffffff 50%, #ffe81f 75%, #ffffff 75%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		background-size: 500%, auto;
+		animation: textShine 1s forwards ease-out;
+		cursor: url('/cursor/hoversmallsaber.png'), auto;
+	}
+	.lightsaber:hover:active,
+	h3:hover:active,
+	a:hover:active,
+	.contact:hover:active {
+		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+	}
+
 	.contact-container {
 		display: flex;
 		flex-direction: column;
@@ -648,11 +634,12 @@
 		color: transparent;
 		-webkit-text-fill-color: transparent;
 		background-size: 500%, auto;
-		animation: textShineInView 4s ease-out;
+		animation: textShine 4s ease-out;
 		animation-direction: alternate;
 		animation-iteration-count: infinite;
 	}
 
+	/* Responsive Styles */
 	@media (max-width: 768px) {
 		h1 {
 			font-size: 3rem;
