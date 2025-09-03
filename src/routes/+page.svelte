@@ -347,18 +347,26 @@
 
 	/* Global Styles (for 3rd Party Library & JS Classes) */
 	:global(body) {
-		cursor: url('/cursor/smallsaber.png'), auto;
+		cursor:
+			url('/cursor/smallsaber.png') 12 12,
+			crosshair;
 	}
 	:global(body:active) {
-		cursor: url('/cursor/activesmallsaber.png'), auto;
+		cursor:
+			url('/cursor/activesmallsaber.png') 12 12,
+			crosshair;
 	}
 	:global(ul.svelte-fp-section-indicator > li > button:hover),
 	:global(ul.svelte-fp-slide-indicator > li > button:hover) {
-		cursor: url('/cursor/hoversmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoversmallsaber.png') 12 12,
+			crosshair;
 	}
 	:global(ul.svelte-fp-section-indicator > li > button:hover:active),
 	:global(ul.svelte-fp-slide-indicator > li > button:hover:active) {
-		cursor: url('/cursor/hoveractivesmallsaber.png'), auto;
+		cursor:
+			url('/cursor/hoveractivesmallsaber.png') 12 12,
+			crosshair;
 	}
 	:global(html, body) {
 		height: 100vh;
