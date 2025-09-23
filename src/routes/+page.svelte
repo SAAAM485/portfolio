@@ -41,14 +41,16 @@
 		<div class="skillcontainer">
 			<p class="skills">
 				<strong>Frontend</strong> <span class="tech">HTML</span> <span class="tech">CSS</span>
+				<span class="tech">Tailwind CSS</span>
 				<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
-				<span class="tech">Webpack</span> <span class="tech">Vite</span>
 				<span class="tech">React</span> <span class="tech">Svelte</span>
-				<span class="tech">Next.js</span>
+				<span class="tech">Next.js</span> <span class="tech">Webpack</span>
+				<span class="tech">Vite</span>
 			</p>
 			<p class="skills">
 				<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
 				<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
+				<span class="tech">JWT</span> <span class="tech">Jest</span>
 				<span class="tech">Restful APIs</span>
 			</p>
 			<p class="skills">
@@ -67,6 +69,37 @@
 	</FullpageSection>
 
 	<FullpageSection title="Projects">
+		<FullpageSlide title="Interior Design Web">
+			<h3 use:inView>Projects</h3>
+			<h1 class="demo">
+				<a
+					href="https://din-interior-design.netlify.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="lightsaber"
+					use:inView
+				>
+					Interior Design Web
+				</a>
+			</h1>
+			<div class="techContainer">
+				<span class="tech">Svelte</span>
+				<span class="tech">Tailwind CSS</span>
+				<span class="tech">Netlify Form</span>
+				<span class="tech">Google Sheets</span>
+			</div>
+			<p class="description">
+				A sleek, responsive SvelteKit site with light/dark mode toggle and a backend-less contact
+				form powered by Netlify Forms—submissions are auto-synced to Google Sheets for effortless
+				management. <br />*Site under construction — awaiting client project data.*
+			</p>
+			<a
+				class="link"
+				href="https://github.com/SAAAM485/Interior-Design-Web"
+				target="_blank"
+				rel="noopener noreferrer">View on GitHub</a
+			>
+		</FullpageSlide>
 		<FullpageSlide title="Zen Flow">
 			<h3 use:inView>Projects</h3>
 			<h1 class="demo">
