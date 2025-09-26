@@ -44,21 +44,28 @@
 				<span class="tech">Tailwind CSS</span>
 				<span class="tech">JavaScript</span> <span class="tech">TypeScript</span>
 				<span class="tech">React</span> <span class="tech">Svelte</span>
-				<span class="tech">Next.js</span> <span class="tech">Webpack</span>
-				<span class="tech">Vite</span>
+				<span class="tech">Next.js</span>
 			</p>
 			<p class="skills">
 				<strong>Backend</strong> <span class="tech">Node.js</span> <span class="tech">Express</span>
 				<span class="tech">PostgreSQL</span> <span class="tech">Prisma</span>
-				<span class="tech">JWT</span> <span class="tech">Jest</span>
+				<span class="tech">JWT</span> <span class="tech">EJS</span>
 				<span class="tech">Restful APIs</span>
+			</p>
+			<p class="skills">
+				<strong>Others</strong> <span class="tech">Linux</span> <span class="tech">Git</span>
+				<span class="tech">Jest</span> <span class="tech">Vite</span>
+				<span class="tech">Webpack</span>
+				<span class="tech">Python (basic)</span> <span class="tech">Java (basic)</span>
+				<span class="tech">TOEIC 875</span>
 			</p>
 			<p class="skills">
 				<strong>Strengths</strong> Quick learner, adaptable to new technologies and frameworks.
 			</p>
 		</div>
 		<p class="power">
-			This site is powered by <span class="tech">Svelte</span> and <span class="tech">Vite</span>.
+			This SSG site is powered by <span class="tech">Svelte</span> and
+			<span class="tech">Vite</span>.
 		</p>
 		<a
 			class="link"
@@ -407,6 +414,11 @@
 		overflow: visible;
 		background-color: transparent;
 		color: white;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	:global(html::-webkit-scrollbar, body::-webkit-scrollbar) {
+		display: none;
 	}
 	:global(.svelte-fp-section-indicator),
 	:global(.svelte-fp-slide-indicator) {
